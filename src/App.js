@@ -1,5 +1,10 @@
 import './App.css';
 import React from 'react';
+import NamePerson from './components/NamePerson';
+import SurnamePerson from './components/SurnamePerson/SurnamePerson';
+import FatherName from './components/FatherName/FatherName';
+import SexPerson from './components/SexPerson/SexPerson';
+import PhonePerson from './components/PhonePerson/PhonePerson';
 
 class NameForm extends React.Component {
   constructor(props) {
@@ -49,31 +54,12 @@ class NameForm extends React.Component {
     return (
       <form className="register-form-container" onSubmit={this.handleSubmit}>
         <div>
-          <p className="form-title">Інформація корстувача</p>
-          <div className="form-field">
-            <label>
-            <input type="text" value={this.state.name} placeholder="Name" pattern="[A-Za-z]{2,}" onChange={this.handleChange} />
-            </label>
-          </div>
-          <div className="form-field">
-            <label>
-            <input type="text" value={this.state.surname} placeholder="Surname" pattern="[A-Za-z]{2,}" onChange={this.handleChangeLastname} />
-            </label>
-          </div>
-          <div className="form-field"> 
-            <label>
-              <input type="text" value={this.state.fathername} placeholder="Fathername" pattern="[A-Za-z]{2,}" onChange={this.handleChangeFathername} required />
-            </label>
-          </div>
-          <div onChange={this.onChangeValue} className="form-field">
-            <input type="radio" value="Male" name="sex" className="rad" /> Male
-          <input type="radio" value="Female" name="sex" className="rad" /> Female
-        </div>
-          <div className="form-field">
-            <label>
-            <input type="text" value={this.state.phone} placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onChange={this.handleChangePhone} />
-            </label>
-          </div>
+          <p className="form-title">Інформація користувача</p>
+          <NamePerson  name={this.state.name} handleChange={this.handleChange} />
+          <SurnamePerson surname={this.state.surname} handleChangeLastname={this.handleChangeLastname } />
+          <FatherName fathername={this.state.fathername} handleChangeFathername={this.handleChangeFathername} />
+          <SexPerson onChangeValue={this.onChangeValue} />
+          <PhonePerson phone={this.state.phone} handleChangePhone={this.handleChangePhone} />
           <button type="submit" value="Submit" className="button">Submit</button>
         </div>
       </form>
