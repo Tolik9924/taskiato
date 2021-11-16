@@ -16,6 +16,17 @@ body {
   margin-bottom: 38px;
 }
 
+.form-text {
+  color: #30507D;
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.formField {
+  margin-bottom: 13px;
+}
+
 label {
   margin-right: 15px;
   line-height: 55px;
